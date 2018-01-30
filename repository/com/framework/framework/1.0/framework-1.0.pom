@@ -21,7 +21,7 @@
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		<spring.version>5.0.2.RELEASE</spring.version>
 		<httpclient.version>4.5.3</httpclient.version>
-		<htmlunit.version>2.26</htmlunit.version>
+		<htmlunit.version>2.29</htmlunit.version>
 		<webclient.version>2.26.6</webclient.version>
 		<jdk.version>1.8</jdk.version>
 		<commons.thread>3.3.6</commons.thread>
@@ -303,6 +303,11 @@
 		    <id>htmlunit</id>
 			<name>htmlunit</name>
 			<url>https://raw.githubusercontent.com/jzft/htmlunit/master/repository/</url>
+	</repository>
+	<repository>
+		    <id>framework</id>
+			<name>framework</name>
+			<url>https://raw.githubusercontent.com/jzft/framework/master/repository/</url>
 	</repository>
 	</repositories>
 	<distributionManagement>
