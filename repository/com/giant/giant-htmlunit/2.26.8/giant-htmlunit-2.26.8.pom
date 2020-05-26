@@ -154,4 +154,14 @@
       <uniqueVersion>false</uniqueVersion>
     </repository>
   </distributionManagement>
+  <repositories>
+	<repository>
+		    <id>giant</id>
+			<name>giant</name>
+			<url>https://raw.githubusercontent.com/jzft/framework/master/repository/</url>
+			 <snapshots>
+				<enabled>false</enabled>
+			</snapshots> 
+	</repository>
+	</repositories> 
 </project>
