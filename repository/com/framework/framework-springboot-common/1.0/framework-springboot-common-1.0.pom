@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.framework</groupId>
-    <artifactId>framework-springboot-dependencies</artifactId>
+    <artifactId>framework</artifactId>
     <version>1.0</version>
   </parent>
   <artifactId>framework-springboot-common</artifactId>
@@ -12,5 +12,10 @@
   		<groupId>com.framework</groupId>
 	    <artifactId>framework-common</artifactId>
   	</dependency>
+  	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<scope>provided</scope>
+	</dependency>
   </dependencies>
 </project>
