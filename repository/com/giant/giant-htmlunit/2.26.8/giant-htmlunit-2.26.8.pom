@@ -2,10 +2,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>net.sourceforge.htmlunit</groupId>
-    <artifactId>webclient</artifactId>
-    <version>2.26.7</version>
-    <name>HtmlUnit</name>
+    <groupId>com.giant</groupId>
+    <artifactId>giant-htmlunit</artifactId>
+    <version>2.26.8</version>
+    <name>giant</name>
     <organization>
         <name>Gargoyle Software Inc.</name>
         <url>http://www.GargoyleSoftware.com/</url>
@@ -19,9 +19,10 @@
         <additionalparam>-Xdoclint:none</additionalparam>
         <!-- As a property, as it is included in Checkstyle build -->
         <checkstyle.version>7.6.1</checkstyle.version>
-        <htmlunit.version>2.29</htmlunit.version>
+        <htmlunit.version>2.35.0</htmlunit.version>
         <framework.version>1.0</framework.version>
         <commons.thread>3.3.6</commons.thread>
+        <commons.collections>3.2.2</commons.collections>
     </properties>
 
     <build>
@@ -87,12 +88,18 @@
                  <option>-keep class com.gargoylesoftware.htmlunit.fetch.FetchWebContext</option>
                  <option>-keep class com.**AbsFetcher</option>
                  <option>-keep class com.gargoylesoftware.htmlunit.fetch.IContext</option>
-                 <option>-keep class com.gargoylesoftware.htmlunit.fetch.vo.**</option>
+                 <option>-keep class com.gargoylesoftware.htmlunit.fetch.RandomBrowserVersion</option>
+                 <option>-keep class com.gargoylesoftware.htmlunit.vo.fetch.**</option>
+                 <option>-keep class com.gargoylesoftware.htmlunit.out.fetch.**</option>
                  <option>-keep class com.**Exception</option>
                  <option>-keep class com.**ICrawlWorker</option>
                  <option>-keep class com.**AbsProxyIpFetcher</option>
-                 
-         
+                 <option>-keep class com.gargoylesoftware.htmlunit.util.HttpClientUtils</option>
+         		 <option>-keep class com.gargoylesoftware.htmlunit.util.IIpCacheMap</option>
+         		<option>-keep class com.gargoylesoftware.htmlunit.util.Const</option>
+         		<option>-keep class com.gargoylesoftware.htmlunit.fetch.NumberUtil</option>
+         		<option>-keep class com.gargoylesoftware.htmlunit.fetch.AbsFetcher$ProxyIpFetchBean</option>
+         		<option>-keep class com.gargoylesoftware.htmlunit.thread.fetch.VarContext</option>
                  
                  <option>-keepclassmembers class com.** {public *;}</option>
 				 <option>-keepclassmembers class com.** {protected *;}</option>
@@ -108,18 +115,37 @@
            </plugins>
        </build>
           <dependencies>
+	          <!-- <dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${commons.collections}</version>
+			 </dependency> -->
+             <!-- httpunit -->
 				<dependency>
 					<groupId>net.sourceforge.htmlunit</groupId>
 					<artifactId>htmlunit</artifactId>
 					<version>${htmlunit.version}</version>
 					<scope>compile</scope>
-					<optional>true</optional>
+					<exclusions>
+						<exclusion>
+							<groupId>commons-logging</groupId>
+							<artifactId>commons-logging</artifactId>
+						</exclusion>
+					</exclusions>
+					<!-- <optional>true</optional> -->
 				</dependency>
-				<dependency>
-				  		<groupId>com.framework</groupId>
-					    <artifactId>framework-util</artifactId>
-					    <version>${framework.version}</version>
-				</dependency>
+				<!-- log4j -->
+		<!-- 	<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${commons-logging.version}</version>
+				<optional>true</optional>
+			</dependency> -->
+			<dependency>
+			  		<groupId>com.framework</groupId>
+				    <artifactId>framework-util</artifactId>
+				    <version>${framework.version}</version>
+			</dependency>
   		  </dependencies>
     <distributionManagement>
     <repository>
