@@ -1,0 +1,185 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.giant</groupId>
+    <artifactId>giant-htmlunit</artifactId>
+    <version>2.36.0</version>
+    <name>giant</name>
+    <organization>
+        <name>Gargoyle Software Inc.</name>
+        <url>http://www.GargoyleSoftware.com/</url>
+    </organization>
+    <packaging>jar</packaging>
+    <description>A headless browser intended for use in testing web-based applications.</description>
+    <url>http://htmlunit.sourceforge.net</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
+        <additionalparam>-Xdoclint:none</additionalparam>
+        <!-- As a property, as it is included in Checkstyle build -->
+        <checkstyle.version>7.6.1</checkstyle.version>
+        <htmlunit.version>2.36.0</htmlunit.version>
+       <!--  <framework.version>1.0</framework.version> -->
+        <framework.version>0.0.1-SNAPSHOT</framework.version>
+        <commons.thread>3.3.6</commons.thread>
+        <commons.collections>3.2.2</commons.collections>
+        <commons.beanutils>1.9.3</commons.beanutils>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <!-- Update the links reference in PDM and clover plugins when this changes -->
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <testExcludes>
+                        <exclude>**/CodeChecker.java</exclude>
+                    </testExcludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.17</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                    <suppressionsLocation>checkstyle_suppressions.xml</suppressionsLocation>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                </configuration>
+                </plugin>
+                 <plugin>
+                <groupId>com.github.wvengen</groupId>
+                <artifactId>proguard-maven-plugin</artifactId>
+                <version>2.0.11</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>proguard</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- 是否混淆-->
+                    <obfuscate>true</obfuscate>
+                      <options> 
+                        <option>-ignorewarnings</option> <!--忽略所有告警-->
+                 <option>-dontshrink</option>   <!--不做 shrink -->
+                 <option>-dontoptimize</option> <!--不做 optimize -->
+                 <option>-skipnonpubliclibraryclasses</option>
+                 <option>-dontnote</option>
+                 <option>-keepattributes Signature</option>
+
+                 <!--保持源码名与行号（异常时有明确的栈信息），注解（默认会过滤掉所有注解，会影响框架的注解）-->
+                 <option>-keepattributes Exceptions,InnerClasses,*Annotation*,Signature,LineNumberTable</option>
+                 <!-- 保持bean类名与属性名不变不变 -->
+            <!--      <option>-keep class com.**Builder</option>-->
+            
+            
+           <!--   <option>-keepclassmembers class com.**</option> -->
+            <!--  -->  
+               	 <option>-keep class com.**FetchHttpClient</option>
+                 <option>-keep class com.**FetchWebClient</option>
+                 <option>-keep class com.giant.htmlunit.fetch.FetchWebContext</option>
+                 <option>-keep class com.**AbsFetcher</option>
+                 <option>-keep class com.giant.htmlunit.fetch.IContext</option>
+                 <option>-keep class com.giant.htmlunit.fetch.RandomBrowserVersion</option>
+                 <option>-keep class com.giant.htmlunit.vo.fetch.**</option>
+                 <option>-keep class com.giant.htmlunit.out.fetch.**</option>
+                 <option>-keep class com.**Exception</option>
+                 <option>-keep class com.**ICrawlWorker</option>
+                 <option>-keep class com.**AbsProxyIpFetcher</option>
+                 <option>-keep class com.giant.htmlunit.util.HttpClientUtils</option>
+         		 <option>-keep class com.giant.htmlunit.util.IIpCacheMap</option>
+         		<option>-keep class com.giant.htmlunit.util.Const</option>
+         		<option>-keep class com.giant.htmlunit.fetch.NumberUtil</option>
+         		<option>-keep class com.giant.htmlunit.fetch.AbsFetcher$ProxyIpFetchBean</option>
+         		<option>-keep class com.giant.htmlunit.thread.fetch.VarContext</option>
+                 
+                 <option>-keepclassmembers class com.** {public *;}</option>
+				 <option>-keepclassmembers class com.** {protected *;}</option>
+
+                   
+                    </options>
+                    <libs>
+                        <lib>${java.home}/lib/rt.jar</lib>
+                         <lib>${java.home}/lib/jce.jar</lib>
+                    </libs>
+                    </configuration>
+               </plugin>
+           </plugins>
+       </build>
+          <dependencies>
+	          <dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${commons.collections}</version>
+			 </dependency>
+             <!-- httpunit -->
+			<dependency>
+				<groupId>net.sourceforge.htmlunit</groupId>
+				<artifactId>htmlunit</artifactId>
+				<version>${htmlunit.version}</version>
+				<scope>compile</scope>
+				<exclusions>
+					<!-- <exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion> -->
+					<!-- <exclusion>
+						<artifactId>websocket-client</artifactId>
+						<groupId>
+							org.eclipse.jetty.websocket
+						</groupId>
+					</exclusion> -->
+				</exclusions>
+				<!-- <optional>true</optional> -->
+			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${commons.beanutils}</version>
+			</dependency>
+				<!-- log4j -->
+		<!-- 	<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${commons-logging.version}</version>
+				<optional>true</optional>
+			</dependency> -->
+			<!-- <dependency>
+			  		<groupId>com.framework</groupId>
+				    <artifactId>framework-util</artifactId>
+				    <version>${framework.version}</version>
+			</dependency> -->
+			<!-- <dependency>
+			  		<groupId>com.framework.concise</groupId>
+				    <artifactId>framework-utils</artifactId>
+				    <version>${framework.version}</version>
+			</dependency> -->
+  		  </dependencies>
+    <distributionManagement>
+    <repository>
+      <id>jzft-mvn-repo</id>
+      <url>file://e:\framework\repository</url>
+      <uniqueVersion>false</uniqueVersion>
+    </repository>
+  </distributionManagement>
+  <repositories>
+	<repository>
+		    <id>giant</id>
+			<name>giant</name>
+			<url>https://raw.githubusercontent.com/jzft/framework/master/repository/</url>
+			 <snapshots>
+				<enabled>false</enabled>
+			</snapshots> 
+	</repository>
+	</repositories> 
+</project>
