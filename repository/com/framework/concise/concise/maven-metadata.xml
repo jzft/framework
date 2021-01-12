@@ -3,9 +3,11 @@
   <groupId>com.framework.concise</groupId>
   <artifactId>concise</artifactId>
   <versioning>
+    <release>1.0</release>
     <versions>
       <version>0.0.1-SNAPSHOT</version>
+      <version>1.0</version>
     </versions>
-    <lastUpdated>20210108080225</lastUpdated>
+    <lastUpdated>20210112044507</lastUpdated>
   </versioning>
 </metadata>
