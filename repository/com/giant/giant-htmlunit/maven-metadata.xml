@@ -3,12 +3,13 @@
   <groupId>com.giant</groupId>
   <artifactId>giant-htmlunit</artifactId>
   <versioning>
-    <release>2.35.0</release>
+    <release>2.35.0_andriod</release>
     <versions>
       <version>2.26.8</version>
       <version>2.36.0</version>
       <version>2.35.0</version>
+      <version>2.35.0_andriod</version>
     </versions>
-    <lastUpdated>20200924151038</lastUpdated>
+    <lastUpdated>20210207153310</lastUpdated>
   </versioning>
 </metadata>

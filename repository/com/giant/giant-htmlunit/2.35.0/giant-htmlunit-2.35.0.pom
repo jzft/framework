@@ -102,6 +102,7 @@
          		<option>-keep class com.giant.htmlunit.fetch.NumberUtil</option>
          		<option>-keep class com.giant.htmlunit.fetch.AbsFetcher$ProxyIpFetchBean</option>
          		<option>-keep class com.giant.htmlunit.thread.fetch.VarContext</option>
+         		<option>-keep class com.gargoylesoftware.htmlunit.javascript.host.*</option>
                  
                  <option>-keepclassmembers class com.** {public *;}</option>
 				 <option>-keepclassmembers class com.** {protected *;}</option>
