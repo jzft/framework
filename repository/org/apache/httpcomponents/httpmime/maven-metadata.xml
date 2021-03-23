@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.apache.httpcomponents</groupId>
+  <artifactId>httpmime</artifactId>
+  <versioning>
+    <release>4.5.8.andriod</release>
+    <versions>
+      <version>4.5.8_andriod</version>
+      <version>4.5.8.andriod</version>
+    </versions>
+    <lastUpdated>20210208053448</lastUpdated>
+  </versioning>
+</metadata>

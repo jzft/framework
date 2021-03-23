@@ -23,6 +23,7 @@
         <framework.version>1.0</framework.version>
         <commons.thread>3.3.6</commons.thread>
         <commons.collections>3.2.2</commons.collections>
+        <commons.beanutils>1.9.3</commons.beanutils>
     </properties>
 
     <build>
@@ -115,12 +116,17 @@
            </plugins>
        </build>
           <dependencies>
-	          <!-- <dependency>
+	         <dependency>
 				<groupId>commons-collections</groupId>
 				<artifactId>commons-collections</artifactId>
 				<version>${commons.collections}</version>
-			 </dependency> -->
+			 </dependency>
              <!-- httpunit -->
+             <dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${commons.beanutils}</version>
+			</dependency>
 				<dependency>
 					<groupId>net.sourceforge.htmlunit</groupId>
 					<artifactId>htmlunit</artifactId>
@@ -142,11 +148,11 @@
 				<version>${commons-logging.version}</version>
 				<optional>true</optional>
 			</dependency> -->
-			<dependency>
+			<!-- <dependency>
 			  		<groupId>com.framework</groupId>
 				    <artifactId>framework-util</artifactId>
 				    <version>${framework.version}</version>
-			</dependency>
+			</dependency> -->
   		  </dependencies>
     <distributionManagement>
     <repository>

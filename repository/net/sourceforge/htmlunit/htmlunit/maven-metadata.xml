@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>net.sourceforge.htmlunit</groupId>
+  <artifactId>htmlunit</artifactId>
+  <versioning>
+    <release>2.35.0.andriod</release>
+    <versions>
+      <version>2.35.0_andriod</version>
+      <version>2.35.0.andriod</version>
+    </versions>
+    <lastUpdated>20210208053505</lastUpdated>
+  </versioning>
+</metadata>

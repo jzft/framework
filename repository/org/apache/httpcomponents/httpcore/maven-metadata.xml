@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.apache.httpcomponents</groupId>
+  <artifactId>httpcore</artifactId>
+  <versioning>
+    <release>4.4.11.andriod</release>
+    <versions>
+      <version>4.4.11_andriod</version>
+      <version>4.4.11.andriod</version>
+    </versions>
+    <lastUpdated>20210208053308</lastUpdated>
+  </versioning>
+</metadata>
