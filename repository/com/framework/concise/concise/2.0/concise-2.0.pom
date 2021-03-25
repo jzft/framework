@@ -59,6 +59,7 @@
 		<tomcat.version>8.5.2</tomcat.version>
         <activiti-dependencies.version>7.1.213</activiti-dependencies.version>
         <easy-captcha.version>1.6.2</easy-captcha.version>
+        <framework.version>2.0</framework.version>
     </properties>
 
     <dependencyManagement>
@@ -187,62 +188,62 @@
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-cloud-web</artifactId>
                 <type>pom</type>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-cache</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-utils</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-auth</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-phoenix</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-spring-utils</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-dao</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-activiti</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-sql-generator</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-auth-base</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-import-excel</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
 			<dependency>
                 <groupId>com.framework.concise</groupId>
                 <artifactId>framework-shard</artifactId>
-                <version>${project.version}</version>
+                <version>${framework.version}</version>
             </dependency>
 
 			<dependency>
